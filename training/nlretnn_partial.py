@@ -8,11 +8,9 @@ import torch.nn.functional as F
 import torch.optim as optim
 import argparse
 import sys
-import beoutil as beo
 from tensorboardX import SummaryWriter
-import hdf5storage
 from sklearn.metrics import classification_report
-from torchnlp.text_encoders import WhitespaceEncoder
+from torchnlp.encoders.text import WhitespaceEncoder
 from torchnlp.word_to_vector import GloVe
 import string
 import itertools
@@ -26,7 +24,7 @@ parser.add_argument('--traindata', type=str, default='data/couch_train.csv', hel
 parser.add_argument('--testdata', type=str, default='data/couch_test.csv', help='data file')
 parser.add_argument('--devdata', type=str, default='data/couch_dev.csv', help='data file')
 parser.add_argument('--testvectors', type=str, default='couch_data/partial_view_test_couch_vectors_300.csv', help='beo vectors')
-parser.add_argument('--couchvectors', type=str, default='couch_data/partial_view_couch_vectors_300.csv', help='beo vectors')
+parser.add_argument('--trainvectors', type=str, default='couch_data/partial_view_couch_vectors_300.csv', help='beo vectors')
 parser.add_argument('--model_output', type=str, help='model output name')
 
 opt = parser.parse_args()
@@ -225,7 +223,7 @@ def main():
     with open(opt.traindata, 'r') as traindatafile:
         with open(opt.devdata, 'r') as devdatafile:
             with open(opt.testdata, 'r') as testdatafile:
-                with open(opt.couchvectors, 'r') as vectorfile:
+                with open(opt.trainvectors, 'r') as vectorfile:
                     with open(opt.testvectors, 'r') as testvectorfile:
                         traindatarows = list(csv.reader(traindatafile))
                         devdatarows = list(csv.reader(devdatafile))
@@ -321,7 +319,7 @@ def main():
                             eval(model, device, dev_data, writer, epoch, "Dev")
                             eval(model, device, test_data, writer, epoch, "Test")
                             retrieval(model, device, ret_data, writer, epoch)
-                        torch.save(model.state_dict(), os.path.join('.', 'models', opt.model_output, 'nlmodel_partial.pt')
+                        torch.save(model.state_dict(), os.path.join('.', 'models', opt.model_output, 'nlmodel_partial.pt'))
 
 if __name__ == "__main__":
     main()

@@ -8,11 +8,9 @@ import torch.nn.functional as F
 import torch.optim as optim
 import argparse
 import sys
-import beoutil as beo
 from tensorboardX import SummaryWriter
-import hdf5storage
 from sklearn.metrics import classification_report
-from torchnlp.text_encoders import WhitespaceEncoder
+from torchnlp.encoders.text import WhitespaceEncoder
 from torchnlp.word_to_vector import GloVe
 import string
 import itertools
@@ -183,9 +181,9 @@ def csvRowsToDataset(datarows, id2vec):
     dataset = []
     for row in datarows:
         dataset.append((row[0],
-                            row[7].translate(str.maketrans('', '', string.punctuation)).lower(),
-                            id2vec[row[0]],
-                            list(map(binarize, avgLabel[row[0]]))))
+                        row[7].translate(str.maketrans('', '', string.punctuation)).lower(),
+                        id2vec[row[0]],
+                        list(map(binarize, avgLabel[row[0]]))))
     return dataset
 
 def binarize(x):
@@ -292,7 +290,7 @@ def main():
                         eval(model, device, dev_data, writer, epoch, "Dev")
                         eval(model, device, test_data, writer, epoch, "Test")
                         retrieval(model, device, ret_data, writer, epoch)
-                    torch.save(model.state_dict(), os.path.join('.', 'models', opt.model_output, 'nlmodel.pt')
+                    torch.save(model.state_dict(), os.path.join('.', 'models', opt.model_output, 'nlmodel.pt'))
 
 if __name__ == "__main__":
     main()
