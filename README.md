@@ -85,8 +85,11 @@ Format:
 object_id, attr_1, attr_ 2, attr_3, attr_4, attr_5, attr_6, natural_language_description
 
 **car_train.csv**
+
 **car_dev.csv**
+
 **car_test.csv**
+
 Contains 10 annotations per object_id, with attribute ratings from 1-5, and a natural language description of the object. Objects are sourced from the shapenet.org project.
 
 ## Citing
