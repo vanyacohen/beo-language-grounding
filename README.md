@@ -6,10 +6,10 @@ The repository needs several large dataset files, which can be downloaded here:
 https://drive.google.com/drive/folders/1_6AdIbaEpOdvTo2kg4GG9z8ApKRVCs1i
 
 ## Training/
-nlmodel.py
+**nlmodel.py**
 Contains the language grounding models (Bag-of-Words & Embedding Model). EmbedModel was the language model used in the paper.
 
-nlretnn.py
+**nlretnn.py**
 Contains the training and evaluation script for the full-view experiment (with fully-observed BEO vectors).
 
 ```
@@ -30,7 +30,7 @@ optional arguments:
                         model output name
 ```
 
-nlretnn_partial.py
+**nlretnn_partial.py**
 Contains the training and evaluation script for the partial-view and view-transfer experiments (with partially-observed BEO vectors).
 
 ```
