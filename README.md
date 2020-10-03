@@ -5,7 +5,7 @@ Code and the dataset for reproducing the experiments of the paper “Grounding L
 The repository needs several large dataset files, which can be downloaded here:
 https://drive.google.com/drive/folders/1_6AdIbaEpOdvTo2kg4GG9z8ApKRVCs1i
 
-## Data/
+## data/
 Datasets are organized into car, couch, and plane respectively. Data files are equivalent across the object classes.
 
 ### car/
@@ -42,10 +42,10 @@ Contains BEO vectors obtained from partial observations of objects, from all ang
 **partial_view_test_car_vectors_300.csv**
 Contains a disjoint test-set of BEO vectors for objects obtained from partial observations of objects, from all angles using HBEO.
 
-## Docs/
+## docs/
 Contains language annotation for each class' attributes and attribute ratings.
 
-## Training/
+## training/
 **nlmodel.py**
 Contains the language grounding models (Bag-of-Words & Embedding Model). EmbedModel was the language model used in the paper.
 
