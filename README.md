@@ -1,5 +1,6 @@
-# Grounding Language Attributes to Objects using Bayesian Eigenobjects
+# Grounding Language Attributes to Objects using Bayesian Eigenobjects (IROS 2019)
 Code and the dataset for reproducing the experiments of the paper “Grounding Language Attributes to Objects using Bayesian Eigenobjects.”
+https://arxiv.org/abs/1905.13153
 
 ## Setup
 The repository needs several large dataset files, which can be downloaded here:
