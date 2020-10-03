@@ -6,10 +6,10 @@ The repository needs several large dataset files, which can be downloaded here:
 https://drive.google.com/drive/folders/1_6AdIbaEpOdvTo2kg4GG9z8ApKRVCs1i
 
 ## Training/
-nlmodel.py
+**nlmodel.py**
 Contains the language grounding models (Bag-of-Words & Embedding Model). EmbedModel was the language model used in the paper.
 
-nlretnn.py
+**nlretnn.py**
 Contains the training and evaluation script for the full-view experiment (with fully-observed BEO vectors).
 
 ```
@@ -18,19 +18,18 @@ usage: nlretnn.py [-h] [--beo_size BEO_SIZE] [--traindata TRAINDATA]
                   [--objvectors OBJVECTORS] [--model_output MODEL_OUTPUT]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --beo_size BEO_SIZE   size of each image dimension
-  --traindata TRAINDATA
-                        data file
-  --testdata TESTDATA   data file
-  --devdata DEVDATA     data file
+  -h, --help             show this help message and exit
+  --beo_size BEO_SIZE    size of each image dimension
+  --traindata TRAINDATA  data file
+  --testdata TESTDATA    data file
+  --devdata DEVDATA      data file
   --objvectors OBJVECTORS
-                        beo vectors
+                         beo vectors
   --model_output MODEL_OUTPUT
-                        model output name
+                         model output name
 ```
 
-nlretnn_partial.py
+**nlretnn_partial.py**
 Contains the training and evaluation script for the partial-view and view-transfer experiments (with partially-observed BEO vectors).
 
 ```
@@ -41,18 +40,17 @@ usage: nlretnn_partial.py [-h] [--beo_size BEO_SIZE] [--traindata TRAINDATA]
                           [--model_output MODEL_OUTPUT]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  --beo_size BEO_SIZE   size of each image dimension
-  --traindata TRAINDATA
-                        data file
-  --testdata TESTDATA   data file
-  --devdata DEVDATA     data file
+  -h, --help             show this help message and exit
+  --beo_size BEO_SIZE    size of each image dimension
+  --traindata TRAINDATA  data file
+  --testdata TESTDATA    data file
+  --devdata DEVDATA      data file
   --testvectors TESTVECTORS
-                        beo vectors
+                         beo vectors
   --trainvectors TRAINVECTORS
-                        beo vectors
+                         beo vectors
   --model_output MODEL_OUTPUT
-                        model output name
+                         model output name
 ```
 
 ## Data/
@@ -61,7 +59,7 @@ Datasets are organized into car, couch, and plane respectively. Data files are e
 ### car/
 Contains BEO and language annotation data for each object in the cars class.
 
-#### BEO vector files:
+### BEO vector files:
 Format:
 object_id, numpy_float_array
 
@@ -80,7 +78,7 @@ Contains BEO vectors obtained from partial observations of objects, from all ang
 **partial_view_test_car_vectors_300.csv**
 Contains a disjoint test-set of BEO vectors for objects obtained from partial observations of objects, from all angles using HBEO.
 
-#### Language annotation files:
+### Language annotation files:
 Format:
 object_id, attr_1, attr_ 2, attr_3, attr_4, attr_5, attr_6, natural_language_description
 
@@ -91,6 +89,9 @@ object_id, attr_1, attr_ 2, attr_3, attr_4, attr_5, attr_6, natural_language_des
 **car_test.csv**
 
 Contains 10 annotations per object_id, with attribute ratings from 1-5, and a natural language description of the object. Objects are sourced from the shapenet.org project.
+
+## Docs/
+Contains language annotation for each class' attributes and attribute ratings.
 
 ## Citing
 If you use our dataset or code please cite:
