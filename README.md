@@ -5,6 +5,46 @@ Code and the dataset for reproducing the experiments of the paper “Grounding L
 The repository needs several large dataset files, which can be downloaded here:
 https://drive.google.com/drive/folders/1_6AdIbaEpOdvTo2kg4GG9z8ApKRVCs1i
 
+## Data/
+Datasets are organized into car, couch, and plane respectively. Data files are equivalent across the object classes.
+
+### car/
+Contains BEO and language annotation data for each object in the cars class.
+
+### Language data files:
+Format:
+object_id, attr_1, attr_ 2, attr_3, attr_4, attr_5, attr_6, natural_language_description
+
+**car_train.csv**
+
+**car_dev.csv**
+
+**car_test.csv**
+
+Contains 10 annotations per object_id, with attribute ratings from 1-5, and a natural language description of the object. Objects are sourced from the shapenet.org project.
+
+### BEO vector files:
+Format:
+object_id, numpy_float_array
+
+**car_full_obv_vecs_300.csv**
+Contains the fully-observed BEO vectors for each object in the dataset.
+
+**limited_viewpoint_car_partial_view_train.csv**
+Contains BEO vectors obtained from partially observed front-facing views of objects using the techniques in “Hybrid Bayesian Eigenobjects: Combining Linear Subspace and Deep Network Methods for 3D Robot Vision” (HBEO)
+
+**limited_viewpoint_car_partial_view_test.csv**
+Contains a disjoint test-set of BEO vectors obtained for objects from side-rear-facing views of objects using HBEO.
+
+**partial_view_car_vectors_300.csv**
+Contains BEO vectors obtained from partial observations of objects, from all angles using HBEO.
+
+**partial_view_test_car_vectors_300.csv**
+Contains a disjoint test-set of BEO vectors for objects obtained from partial observations of objects, from all angles using HBEO.
+
+## Docs/
+Contains language annotation for each class' attributes and attribute ratings.
+
 ## Training/
 **nlmodel.py**
 Contains the language grounding models (Bag-of-Words & Embedding Model). EmbedModel was the language model used in the paper.
@@ -52,46 +92,6 @@ optional arguments:
   --model_output MODEL_OUTPUT
                          model output name
 ```
-
-## Data/
-Datasets are organized into car, couch, and plane respectively. Data files are equivalent across the object classes.
-
-### car/
-Contains BEO and language annotation data for each object in the cars class.
-
-### BEO vector files:
-Format:
-object_id, numpy_float_array
-
-**car_full_obv_vecs_300.csv**
-Contains the fully-observed BEO vectors for each object in the dataset.
-
-**limited_viewpoint_car_partial_view_train.csv**
-Contains BEO vectors obtained from partially observed front-facing views of objects using the techniques in “Hybrid Bayesian Eigenobjects: Combining Linear Subspace and Deep Network Methods for 3D Robot Vision” (HBEO)
-
-**limited_viewpoint_car_partial_view_test.csv**
-Contains a disjoint test-set of BEO vectors obtained for objects from side-rear-facing views of objects using HBEO.
-
-**partial_view_car_vectors_300.csv**
-Contains BEO vectors obtained from partial observations of objects, from all angles using HBEO.
-
-**partial_view_test_car_vectors_300.csv**
-Contains a disjoint test-set of BEO vectors for objects obtained from partial observations of objects, from all angles using HBEO.
-
-### Language annotation files:
-Format:
-object_id, attr_1, attr_ 2, attr_3, attr_4, attr_5, attr_6, natural_language_description
-
-**car_train.csv**
-
-**car_dev.csv**
-
-**car_test.csv**
-
-Contains 10 annotations per object_id, with attribute ratings from 1-5, and a natural language description of the object. Objects are sourced from the shapenet.org project.
-
-## Docs/
-Contains language annotation for each class' attributes and attribute ratings.
 
 ## Citing
 If you use our dataset or code please cite:
