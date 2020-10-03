@@ -1,11 +1,11 @@
-#Grounding Language Attributes to Objects using Bayesian Eigenobjects
+# Grounding Language Attributes to Objects using Bayesian Eigenobjects
 Code and the dataset for reproducing the experiments of the paper “Grounding Language Attributes to Objects using Bayesian Eigenobjects.”
 
-##Setup
+## Setup
 The repository needs several large dataset files, which can be downloaded here:
 https://drive.google.com/drive/folders/1_6AdIbaEpOdvTo2kg4GG9z8ApKRVCs1i
 
-###Training/
+## Training/
 nlmodel.py
 Contains the language grounding models (Bag-of-Words & Embedding Model). EmbedModel was the language model used in the paper.
 
@@ -55,10 +55,10 @@ optional arguments:
                         model output name
 ```
 
-###Data/
+## Data/
 Datasets are organized into car, couch, and plane respectively. Data files are equivalent across the object classes.
 
-####car/
+### car/
 Contains BEO and language annotation data for each object in the cars class.
 
 BEO vector files:
@@ -89,7 +89,7 @@ car_dev.csv
 car_test.csv
 Contains 10 annotations per object_id, with attribute ratings from 1-5, and a natural language description of the object. Objects are sourced from the shapenet.org project.
 
-##Citing
+## Citing
 If you use our dataset or code please cite:
 ```
 @inproceedings{cohen2019grounding,
